@@ -12,19 +12,18 @@ pragma solidity 0.4.15;
 
     Examples:
 
-      MarketPrice price = MarketPrice(CONTRACT_ADDRESS);
+      FiatContract price = FiatContract(CONTRACT_ADDRESS);
 
       uint256 ethCent = price.USD(0);        // returns $0.01 worth of ETH in USD.
       uint256 weiAmount = ethCent * 2500     // returns $25.00 worth of ETH in USD
       require(msg.value == weiAmount);       // require $25.00 worth of ETH as a payment
-
-      uint256 btcCent = price.USD(1);        // returns $0.01 worth of BTC/USD in ETH
-      uint256 weiAmount = btcCent * 15025    // returns $150.25 worth of BTC/USD in ETH
+      
+    Please look at Repo or Website to get Currency ID values.
 
     @author Hunter Long
 */
 
-contract MarketPrice {
+contract FiatContract {
 
     mapping(uint => Token) public tokens;
 
@@ -47,7 +46,7 @@ contract MarketPrice {
     }
 
     // initialize function
-    function MarketPrice() {
+    function FiatContract() {
         creator = msg.sender;
         sender = msg.sender;
     }
