@@ -1,0 +1,75 @@
+{
+  "contract_name": "Example",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "price",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "FiveETHUSD",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "PriceAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "marketPriceContract",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewPayment",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b604051602080610249833981016040528080519150505b60008054600160a060020a031916600160a060020a0383161790555b505b6101f6806100536000396000f300606060405263ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663a035b1fe8114610053578063ec54e0351461008f578063f776d5a4146100b4575b600080fd5b341561005e57600080fd5b6100666100f0565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b341561009a57600080fd5b6100a261010c565b60405190815260200160405180910390f35b34156100bf57600080fd5b6100666101ad565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60008054819073ffffffffffffffffffffffffffffffffffffffff16630c560c648280604051602001526040517c010000000000000000000000000000000000000000000000000000000063ffffffff84160281526004810191909152602401602060405180830381600087803b151561018557600080fd5b6102c65a03f1151561019657600080fd5b50505060405180516101f4810293509150505b5090565b60005473ffffffffffffffffffffffffffffffffffffffff165b905600a165627a7a72305820041b3fdd7b2f12671eb444fe165a29c9fdbae855f6496f3ee2aecf2db57f94a00029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1505273010739
+}
