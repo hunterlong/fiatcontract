@@ -2,7 +2,7 @@
     <b>Fiat Contract</b><br>
   <a href="https://ropsten.etherscan.io/address/0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909#code">Testnet</a> |
   <a href="https://etherscan.io/address/0x8055d0504666e2B6942BeB8D6014c964658Ca591#code">Mainnet</a> |
-  <a href="#implementing-inside-contracts">Implement</a>
+  <a href="https://fiatcontract.com/#implement">Implement</a>
   <br>
   FiatContract(<b>0x8055d0504666e2B6942BeB8D6014c964658Ca591</b>)
   <br>
