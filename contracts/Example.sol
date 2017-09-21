@@ -5,15 +5,17 @@ pragma solidity 0.4.15;
     Crypto Price Example Contract with FiatContract.com
 
     This contract will force the sender to send $5.00 USD
-    worth of STORJ in ETH. If the sender sends the correct
-    amount in ETH, then the contract will send $5.00 of
-    STORJ tokens to the sender.
-
-    $5.00 in ETH => Sends $5.00 of STORJ tokens
+    worth of ETH.
 
 */
 
-import "./FiatContractAPI.sol";
+contract FiatContract {
+  function ETH(uint _id) constant returns (uint256);
+  function USD(uint _id) constant returns (uint256);
+  function EUR(uint _id) constant returns (uint256);
+  function GBP(uint _id) constant returns (uint256);
+  function updatedAt(uint _id) constant returns (uint);
+}
 
 contract Example {
 
