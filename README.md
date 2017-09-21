@@ -9,7 +9,7 @@
   <br>
 </p>
 
-# Fiat Contract Smart Contract [![Build Status](https://travis-ci.org/hunterlong/marketprice.svg?branch=master)](https://travis-ci.org/hunterlong/marketprice)
+# Fiat Contract [![Build Status](https://travis-ci.org/hunterlong/fiatcontract.svg?branch=master)](https://travis-ci.org/hunterlong/fiatcontract)
 
 Retrieve Ethereum market price by referencing this smart contract! 
 Finally a way for smart contracts to get how much $1.00 is in ETH. 
