@@ -1,6 +1,5 @@
 <p align="center">
-  <img width="560" src="https://i.imgur.com/AGgUuW8.jpg"><br>
-    <b>Coin Market Contract</b><br>
+    <b>Fiat Contract</b><br>
   <a href="https://ropsten.etherscan.io/address/0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909#code">Testnet</a> |
   <a href="https://etherscan.io/address/0x8055d0504666e2B6942BeB8D6014c964658Ca591#code">Mainnet</a> |
   <a href="#implementing-inside-contracts">Implement</a>
@@ -10,7 +9,7 @@
   <br>
 </p>
 
-# Coin Market Price Smart Contract [![Build Status](https://travis-ci.org/hunterlong/marketprice.svg?branch=master)](https://travis-ci.org/hunterlong/marketprice)
+# Fiat Contract Smart Contract [![Build Status](https://travis-ci.org/hunterlong/marketprice.svg?branch=master)](https://travis-ci.org/hunterlong/marketprice)
 
 Retrieve Ethereum market price by referencing this smart contract! 
 Finally a way for smart contracts to get how much $1.00 is in ETH. 
