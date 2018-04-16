@@ -1,13 +1,13 @@
 {
   "name": "fiatcontract",
   "version": "1.0.0",
-  "description": "<img src=\"https://i.imgur.com/rJBIoLZ.png\">",
+  "description": "Retrieve Ethereum market price by referencing this smart contract! Finally a way for smart contracts to get how much $1.00 is in ETH. By referencing this contracts you can even automatically convert other ERC20's market prices and convert it back into ETH.",
   "main": "truffle.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "truffle compile && truffle test"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/hunterlong/fiatcontract#readme",
   "dependencies": {
-    "ethereumjs-testrpc": "^6.0.3",
-    "truffle": "3.4.6"
+    "ganache-cli": "^6.1.0",
+    "truffle": "^4.1.5"
   }
 }
