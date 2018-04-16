@@ -1,3 +1,5 @@
+<img src="https://i.imgur.com/rJBIoLZ.png">
+
 <p align="center">
     <b>Fiat Contract</b><br>
   <a href="https://ropsten.etherscan.io/address/0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909#code">Testnet</a> |
