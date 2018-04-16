@@ -27,7 +27,7 @@ price = FiatContract(0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909) // TESTNET ADDR
 ```
 
 ## Market Price Update Rate
-- MAINNET - Every 2 hours
+- MAINNET - Every 1 hour (website has a counter for amount of days contract can run based on donations!)
 - TESTNET - Every 15 minutes
 
 Donating to the contract will help support the gas used for updating the exchange prices.
