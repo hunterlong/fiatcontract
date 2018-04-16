@@ -19,10 +19,9 @@ addons:
 before_install:
   - export CXX="g++-4.8"
   - npm install -g npm@latest
-  - npm install -g ethereumjs-testrpc truffle@3.4.6
 
 install:
-  - npm install 
+  - npm install
 
 script:
   - testrpc &
