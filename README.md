@@ -39,10 +39,10 @@ This contract holds multiple market rates for multiple cryptocurrencies, the con
 
 ### Simple to Use Methods
 ```
-uint256 coin = price.ETH(0);    // returns ETH value for 1 OMG. ETH/OMG
+uint256 coin = price.ETH(0);    // returns ETH value for 1 ETH. Always 1.
 uint256 cent = price.USD(0);    // returns $0.01 worth of ETH in USD.
-uint256 cent = price.EUR(0);    // returns $0.01 worth of OMG in Euro.
-uint256 cent = price.GBP(0);    // returns $0.01 worth of OMG in British Pound.
+uint256 cent = price.EUR(0);    // returns $0.01 worth of ETH in Euro.
+uint256 cent = price.GBP(0);    // returns $0.01 worth of ETH in British Pound.
 ```
 
 ### Implement in your Contract
