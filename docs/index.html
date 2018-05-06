@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fiat Contract - Ethereum Smart Contract to convert to USD, EURO, and GBP. </title>
+    <link rel="shortcut icon" href="https://fiatcontract.com/favicon.ico" />
+	<link rel="icon" href="https://fiatcontract.com/favicon.ico" />
+    <meta name="description" content="Fiat Contract is an Ethereum Smart Contract that lets you get the rate of ETH in USD, Euro, and GBP inside your own smart contract. Supports multiple cryptos, works on mainnet and testnet.">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+
+<header id="first">
+    <div class="header-content">
+        <div class="inner">
+            <h1>Fiat Contract<br><a href="https://travis-ci.org/hunterlong/fiatcontract"><img src="https://travis-ci.org/hunterlong/fiatcontract.svg?branch=master"></a></h1>
+            <h5 class="wow fadeIn text-normal">Get Fiat Currency value within an Ethereum Contract</h5>
+            <h6 class="wow fadeIn text-normal">$0.01 USD/EURO/GBP in ETH to fit your conversion</h6>
+            <hr>
+            <a href="#implement" class="btn btn-primary btn-xl page-scroll wow fadeInUp">Implement</a>
+        </div>
+    </div>
+</header>
+
+	<div class="pricesection">
+		<div class="container">
+			<div class="row">
+			    <div class="col col-lg-3 col-xs-12 text-center"><h2>USD</h2><span id="ethusd">0.00000000000000 ETH</span>is $0.01</div>
+			    <div class="col col-lg-3 col-xs-12 text-center"><h2>EUR</h2><span id="etheur">0.00000000000000 ETH</span>is €0.01</div>
+			    <div class="col col-lg-3 col-xs-12 text-center"><h2>GBP</h2><span id="ethgbp">0.00000000000000 ETH</span>is £0.01</div>
+          <div class="col col-lg-3 col-xs-12 text-center"><h2>Last Update</h2><span id="last_update">0</span>about <b id="block_minutes">25</b> minutes ago</div>
+			</div>
+		</div>
+	</div>
+
+
+<section id="four">
+    <div class="container">
+            <div class="col-xs-12">
+                <br/>
+                <h1 class="display-4">Ethereum Smart Contract</h1>
+                <p class="lead text-justify">
+
+                An Ethereum Smart Contract that will allow your contracts to get up-to-date ETH/USD, ETH/EUR, and ETH/GBP prices. Using this contract doesn't require any contract calls or any extra setup. Many people ask how to get the rate of ETH in USD from within a contract, fiat contract is here to do this for you. This smart contract doesn't only do USD, but it also lets you use EURO, and GBP.
+
+				</p>
+            </div>
+
+
+            <div class="pricesection" style="background-color: #f9f9f9;">
+              <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center"><h2 id="donate_days">2 Days</h2><span id="account_cost">0.00043 ETH per hour</span>Donate: <i style="font-size: 0.5rem;">0x004f3e7ffa2f06ea78e14ed2b13e87d710e8013f</i></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-xs-12">
+                <br/>
+                <h1 class="display-4">Contract Connection</h1>
+                <p class="lead text-justify">
+
+                An Ethereum Smart Contract that will allow your contracts to get up-to-date ETH/USD, ETH/EUR, and ETH/GBP prices. Using this contract doesn't require any contract calls or any extra setup. Using solidity you can use the testnet or use the mainnet to get current crypto prices.
+
+                <pre class="prettyprint lang-json code">
+price = FiatContract(0x8055d0504666e2B6942BeB8D6014c964658Ca591) // MAINNET ADDRESS
+price = FiatContract(0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909) // TESTNET ADDRESS (ROPSTEN)</pre>
+
+				</p>
+            </div>
+
+
+
+            <div class="col-xs-12">
+                <br/>
+                <h1 class="display-4" id="implement">Full Example</h1>
+                <p class="lead text-justify">
+
+                This is a full example of an Ethereum Smart Contract using Fiat Contract. This contract as a function "DoCall()" that requires $5.00 USD in Ether.
+
+                <pre class="prettyprint lang-json code">
+pragma solidity ^0.4.15;
+
+contract FiatContract {
+  function ETH(uint _id) constant returns (uint256);
+  function USD(uint _id) constant returns (uint256);
+  function EUR(uint _id) constant returns (uint256);
+  function GBP(uint _id) constant returns (uint256);
+  function updatedAt(uint _id) constant returns (uint);
+}
+
+contract Example {
+
+    FiatContract public price;
+    event NewPayment(address sender, uint256 amount);
+
+    function Example() {
+        price = FiatContract(0x8055d0504666e2B6942BeB8D6014c964658Ca591);
+    }
+
+    // returns $5.00 USD in ETH wei.
+    function FiveETHUSD() constant returns (uint256) {
+        // returns $0.01 ETH wei
+        uint256 ethCent = price.USD(0);
+        // $0.01 * 500 = $5.00
+        return ethCent * 500;
+    }
+
+    function DoCall() external payable returns (string) {
+        require(msg.value==FiveETHUSD());
+        NewPayment(msg.sender, msg.value);
+        return "you paid $5.00 USD!!!";
+    }
+
+}</pre>
+
+				</p>
+            </div>
+
+
+
+            <div class="col-xs-12">
+                <br/>
+                <h1 class="display-4">Cryptocurrency Values</h1>
+                <p class="lead text-justify">
+
+<pre class="prettyprint lang-json code">
+eth = price.USD(0); // this will respond $0.01 USD worth of ETH
+btc = price.USD(1); // PENDING - this will respond $0.01 USD worth of BITCOIN (converted into ETH)
+ltc = price.USD(2); // PENDING - this will respond $0.01 USD worth of LITECOIN (converted into ETH)
+omg = price.USD(4); // PENDING - this will respond $0.01 USD worth of OMISEGO (converted into ETH)
+eos = price.USD(5); // PENDING - this will respond $0.01 USD worth of EOS (converted into ETH)
+tex = price.USD(6); // PENDING - this will respond $0.01 USD worth of TENX (converted into ETH)
+rep = price.USD(7); // PENDING - this will respond $0.01 USD worth of AUGUR (converted into ETH)
+qtm = price.USD(8); // PENDING - this will respond $0.01 USD worth of QTUM (converted into ETH)
+bat = price.USD(9); // PENDING - this will respond $0.01 USD worth of GOLEM (converted into ETH)
+zrx = price.USD(10); // PENDING - this will respond $0.01 USD worth of OXPROJECT (converted into ETH)
+sts = price.USD(11); // PENDING - this will respond $0.01 USD worth of STATUS (converted into ETH)
+ban = price.USD(12); // PENDING - this will respond $0.01 USD worth of BANCOR (converted into ETH)
+</pre>
+Some cryptocurrencies are not inserted into the Fiat Contract yet. Since we update each crypto every hour, we need donations to help support the gas costs.
+				</p>
+            </div>
+
+
+
+            <div class="col-xs-12">
+                <br/>
+                <h1 class="display-4">More Examples</h1>
+                <p class="lead text-justify">
+
+<pre class="prettyprint lang-json code">
+USDcent = price.USD(0);  // this will respond $0.01 USD worth of ETH
+EUROcent = price.EUR(0); // this will respond $0.01 EURO worth of ETH
+GBPcent = price.GBP(0);  // this will respond $0.01 GBP worth of ETH
+
+oneDollar = USDcent * 100;   // value is $1.00 USD in ETH
+fiveDollars = USDcent * 500; // value is $5.00 USD in ETH
+sevenEuros = EUROcent * 700; // value is $7.00 EURO in ETH
+tenPounds = GBPcent * 1000;  // value is $10.00 GBP in ETH
+
+oneBTC = price.ETH(1); // this will respond amount of ETH for 1 BITCOIN
+oneLTC = price.ETH(2); // this will respond amount of ETH for 1 LITECOIN
+
+threeBTC = oneBTC * 3; // responds the value of 3 Bitcoin in ETH.
+
+</pre>
+				</p>
+            </div>
+
+
+
+
+            <div class="col-xs-12">
+                <br/>
+                <h1 class="display-4">Donate</h1>
+                <p class="lead text-justify">
+
+                Fiat Contract is updated every 1 hour on the Ethereum Mainnet blockchain. Doing all these contract calls require gas to be spent which is in ETH. The contract is supported by blockchainers that use this contract to easily fetch USD, EURO, GBP conversions.
+
+                <pre class="prettyprint lang-json code">Donate ETH to address: 0x004F3E7fFA2F06EA78e14ED2B13E87d710e8013F</pre>
+
+
+				</p>
+            </div>
+
+
+
+
+
+
+        <hr/>
+        </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-3">
+                <h6 class="text-uppercase">Information</h6>
+                <ul class="list-unstyled">
+                    <li><a href="https://etherscan.io/address/0x8055d0504666e2B6942BeB8D6014c964658Ca591#readContract">Ethereum Mainnet</a></li>
+                    <li><a href="https://ropsten.etherscan.io/address/0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909#readContract">Ropsten Testnet</a></li>
+                    <li><a href="https://github.com/hunterlong/fiatcontract">Github</a></li>
+                    <li><a href="https://etherscan.io/address/0x004f3e7ffa2f06ea78e14ed2b13e87d710e8013f">Donate ETH</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <br>
+        <span class="pull-right text-muted small"><a href="https://hunterlong.info">Made by Hunter Long</a> 2018 Fiat Contract</span>
+    </div>
+</footer>
+
+
+ 	<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103646485-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script src="/web3.js"></script>
+<script src="/eth.js"></script>
+
+</body>
+</html>
