@@ -1,6 +1,6 @@
 window.addEventListener('load', function() {
 
-	web3 = new Web3(new Web3.providers.HttpProvider("https://eth.coinapp.io"));
+	web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/0PB64JcYkClAGFOPMY4s"));
 
 	CallContract();
 
