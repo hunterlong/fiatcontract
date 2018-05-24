@@ -361,12 +361,15 @@ var abi = [
 var fiatContract = web3.eth.contract(abi);
 var price = fiatContract.at('0x8055d0504666e2B6942BeB8D6014c964658Ca591');
 
-FetchUSD(price);
-FetchEUR(price);
-FetchGBP(price);
-lastUpdate(price);
-
-RunnerBalance();
+FetchUSD(price, function() {
+	FetchEUR(price, function() {
+		FetchGBP(price, function() {
+			lastUpdate(price, function() {
+				RunnerBalance();
+			});
+		});
+	});
+});
 
 }
 
@@ -395,32 +398,35 @@ function RunnerBalance() {
 }
 
 
-function FetchUSD(price){
+function FetchUSD(price, callback){
 	price.USD(0, function(e, r){
 		var ethUSD = r.valueOf();
 		var toEth = web3.fromWei(ethUSD, 'ether');
 		$("#ethusd").html(toEth+" ETH");
+		callback();
 	});
 }
 
 
-function FetchEUR(price){
+function FetchEUR(price, callback){
 	price.EUR(0, function(e, r){
 		var ethUSD = r.valueOf();
 		var toEth = web3.fromWei(ethUSD, 'ether');
 		$("#etheur").html(toEth+" ETH");
+		callback()
 	});
 }
 
-function FetchGBP(price){
+function FetchGBP(price, callback){
 	price.GBP(0, function(e, r){
 		var ethUSD = r.valueOf();
 		var toEth = web3.fromWei(ethUSD, 'ether');
 		$("#ethgbp").html(toEth+" ETH");
+		callback();
 	});
 }
 
-function lastUpdate(price){
+function lastUpdate(price, callback){
 	price.updatedAt(0, function(e, r){
 		var block = r.valueOf();
 
@@ -433,6 +439,8 @@ function lastUpdate(price){
 				$("#last_update").html((current-block)+" blocks ago");
 
 				$("#block_minutes").html(Math.floor(minutes_ago));
+				
+				callback();
 
 			})
 
